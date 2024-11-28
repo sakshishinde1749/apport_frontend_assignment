@@ -1,0 +1,20 @@
+.selector-dropdown {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #1a1a1a;
+  background: white;
+  cursor: pointer;
+}
+
+.selector-dropdown:hover {
+  border-color: #999;
+}
+
+.selector-dropdown:focus {
+  outline: none;
+  border-color: #2684ff;
+  box-shadow: 0 0 0 1px #2684ff;
+}

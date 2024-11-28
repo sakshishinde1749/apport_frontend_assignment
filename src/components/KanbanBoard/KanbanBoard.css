@@ -1,0 +1,287 @@
+.kanban-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  padding: 20px;
+  background-color: #f7f7f7;
+  min-height: calc(100vh - 60px);
+  width: 98%;
+  max-width: 100vw;
+  overflow-x: hidden !important;
+  z-index: -1;
+}
+
+.kanban-board::-webkit-scrollbar {
+  height: 8px;
+}
+
+
+.column-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.kanban-board::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.kanban-board::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+.kanban-column {
+  background: #f7f7f7;
+  border-radius: 8px;
+  padding: 12px;
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); */
+  height: fit-content;
+  width: 90%;
+}
+
+.column-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: #666;
+  font-size: 16px;
+  line-height: 1;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.icon-button:hover {
+  background-color: #f0f0f0;
+  color: #1a1a1a;
+}
+
+.column-header h2 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+.status-icon, .priority-icon {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.icon-button:hover svg path {
+  fill: #1a1a1a;
+}
+
+.ticket-count {
+  background: #f0f0f0;
+  padding: 1px 6px;
+  border-radius: 10px;
+  font-size: 11px;
+  color: #666;
+  min-width: 20px;
+  text-align: center;
+}
+
+.tickets-container {
+  max-height: calc(100vh - 180px);
+  overflow-y: visible;
+  overflow-x: hidden;
+}
+
+.loading, .error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 18px;
+  color: #666;
+}
+
+.user-group-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.user-group-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  color: #475569;
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.user-group-availability {
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.user-group-availability.available {
+  background-color: #4caf50;
+}
+
+.user-group-availability.away {
+  background-color: #ff9800;
+}
+
+.user-group-header span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.availability-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.availability-dot.available {
+  background-color: #4caf50;
+}
+
+.availability-dot.away {
+  background-color: #ff9800;
+}
+
+.ticket-title {
+  font-size: 14px;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+@media screen and (max-width: 1600px) {
+  .kanban-board {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 12px;
+    padding: 16px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .kanban-board {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 10px;
+    padding: 12px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .kanban-board {
+    grid-template-columns: 1fr;
+    padding: 8px;
+    gap: 16px;
+  }
+
+  .kanban-column {
+    width: 92%;
+  }
+
+  .tickets-container {
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  .column-header {
+    padding: 12px;
+    margin: -12px -12px 12px -12px;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .icon-button {
+    width: 28px;
+    height: 28px;
+  }
+
+  .user-group-avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 13px;
+  }
+
+  .user-group-availability {
+    width: 8px;
+    height: 8px;
+  }
+
+  .user-group-header {
+    gap: 6px;
+  }
+
+  .status-icon, .priority-icon {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .icon-button svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
